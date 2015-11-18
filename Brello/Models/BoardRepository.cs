@@ -36,7 +36,7 @@ namespace Brello.Models
             return result;
         }
 
-        public List<BrelloList> GetAllLists()
+        public virtual List<BrelloList> GetAllLists()
         {
             var query = from l in context.Boards select l;
             return query.SelectMany(board => board.Lists).ToList();

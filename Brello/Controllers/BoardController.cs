@@ -9,8 +9,8 @@ namespace Brello.Controllers
 {
     public class BoardController : Controller
     {
-        private BoardRepository repository;
-        private Mock<>
+       // private BoardRepository repository;
+        
 
         public BoardController()
         {
