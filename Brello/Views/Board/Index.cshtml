@@ -12,7 +12,6 @@
                 <div class="brellolist-header"></div>
                 <div class="brellolist">
                     <ul class="center">
-
                     </ul>
                 </div>
                 <div class="brellolist-footer"></div>
@@ -28,7 +27,7 @@
                             @Html.Hidden("board-id", ViewBag.CurrentBoardId as string)
                             <div class="modal-header">Add New List to @ViewBag.CurrentBoardId</div>
                             <div class="modal-body">@Html.TextBox("list-name")</div>
-                            <div class="modal-footer"><input class="btn" type="submit" value="Submit"/></div>
+                            <div class="modal-footer"><input class="btn" type="submit" value="Submit" /></div>
                             <!--a href="javascript:document.getElementById('logoutForm').submit()">Log off</a-->
                         }
                     </div>
@@ -39,16 +38,8 @@
     </div>
 </div>
 
-
-
-
-
-
     @*@using (Html.BeginForm("Create", "Board", FormMethod.Post, htmlAttributes: new { style = "display:block;", @class = "mystyle"}))
     {
         @Html.AntiForgeryToken()
         @Html.TextBox("name")
     }*@
-
-    
-        

@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Brello.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Brello.Models;
 
 namespace Brello.Tests.Models
 {

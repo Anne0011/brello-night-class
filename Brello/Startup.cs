@@ -2,6 +2,7 @@
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(Brello.Startup))]
+
 namespace Brello
 {
     public partial class Startup

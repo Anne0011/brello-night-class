@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace Brello.Models
 {
@@ -10,19 +7,19 @@ namespace Brello.Models
     {
         [Key]
         public int ColorId { get; set; }
+
         public string Name { get; set; }
         public string Value { get; set; }
-        
+
         public int CompareTo(object obj)
         {
             Color other_color = obj as Color;
             // Other way to cast
             // Color other_color = (Color)obj;
             return this.Name.CompareTo(other_color.Name);
-
         }
-        
-        public static bool operator==(Color color1,object obj2)
+
+        public static bool operator ==(Color color1, object obj2)
         {
             return 0 == color1.CompareTo(obj2 as Color);
         }

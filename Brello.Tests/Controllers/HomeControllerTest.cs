@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
+﻿using Brello.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Brello;
-using Brello.Controllers;
+using System.Web.Mvc;
 
 namespace Brello.Tests.Controllers
 {

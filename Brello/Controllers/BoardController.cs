@@ -1,12 +1,8 @@
 ﻿using Brello.Models;
-using System;
+using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
 
 namespace Brello.Controllers
 {
@@ -38,12 +34,14 @@ namespace Brello.Controllers
             Board my_board = null;
             if (boards.Count() == 0)
             {
-                 my_board = repository.CreateBoard("My Board", me);
-            } else
+                my_board = repository.CreateBoard("My Board", me);
+            }
+            else
             {
                 my_board = boards.First();
             }
             ViewBag.Title = my_board.Title;
+            ViewBag.CurrentBoardId = my_board.BoardId;
 
             //bool successful = repository.AddList(my_board.BoardId, new BrelloList { Title = "ToDo" });
 
@@ -76,14 +74,12 @@ namespace Brello.Controllers
             }
             /*if (Request.IsAjaxRequest())
             {
-
             } else
             {
                 return View("Index");
             }*/
 
             return RedirectToAction("Index");
-
         }
 
         // POST: Board/Create

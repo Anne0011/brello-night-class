@@ -1,7 +1,5 @@
-﻿using System;
+﻿using Brello.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Brello.Models;
-using System.Collections.Generic;
 
 namespace Brello.Tests.Models
 {
@@ -22,13 +20,11 @@ namespace Brello.Tests.Models
             // Object Initializer syntax
             Board board = new Board { Title = "My Board" };
 
-
             BrelloList brello_list = new BrelloList { Title = "My List" };
             board.Lists.Add(brello_list);
 
             ApplicationUser a_user = new ApplicationUser();
             board.Followers.Add(a_user);
-            
 
             Assert.AreEqual("My Board", board.Title);
             Assert.AreEqual(1, board.Lists.Count);

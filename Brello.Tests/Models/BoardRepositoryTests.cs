@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Brello.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Brello.Models;
 using Moq;
-using System.Data.Entity;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace Brello.Tests.Models
@@ -11,7 +10,6 @@ namespace Brello.Tests.Models
     [TestClass]
     public class BoardRepositoryTests
     {
-
         private Mock<BoardContext> mock_context;
         private Mock<DbSet<Board>> mock_boards;
         private List<Board> my_list;
@@ -39,7 +37,6 @@ namespace Brello.Tests.Models
             owner = new ApplicationUser();
             user1 = new ApplicationUser();
             user2 = new ApplicationUser();
-
         }
 
         [TestCleanup]
@@ -56,17 +53,15 @@ namespace Brello.Tests.Models
             BoardRepository board = new BoardRepository(mock_context.Object);
             Assert.IsNotNull(board);
         }
-        
+
         [TestMethod]
         public void BoardRepositoryEnsureICanAddAList()
         {
-
             BoardRepository board_repo = new BoardRepository(mock_context.Object);
             BrelloList list = new BrelloList { Title = "ToDo", BrelloListId = 1 };
             my_list.Add(new Board { Title = "My First Board", Owner = user1, BoardId = 1 });
 
             ConnectMocksToDataSource();
-
 
             bool actual = board_repo.AddList(1, list);
 
@@ -93,7 +88,7 @@ namespace Brello.Tests.Models
         public void BoardRepositoryEnsureICanGetAllLists()
         {
             /* Begin Arrange */
-            
+
             var brello_lists = new List<BrelloList>
             {
                 new BrelloList { Title = "My List", BrelloListId = 1}
@@ -126,11 +121,9 @@ namespace Brello.Tests.Models
             BoardRepository board_repo = new BoardRepository(mock_context.Object);
             /* End Arrange */
 
-
             int expected = 0;
             int actual = board_repo.GetListCount();
             Assert.AreEqual(expected, actual);
-            
         }
 
         // These tests are telling us to start looking at
@@ -168,7 +161,7 @@ namespace Brello.Tests.Models
             List<Board> user_boards = board_repository.GetBoards(user1);
             /* Begin Assert */
             Assert.AreEqual(1, user_boards.Count());
-            Assert.AreEqual("Tim's Board",user_boards.First().Title);
+            Assert.AreEqual("Tim's Board", user_boards.First().Title);
         }
 
         [TestMethod]
@@ -179,7 +172,7 @@ namespace Brello.Tests.Models
             var data = my_list.AsQueryable();
 
             //mock_boards.Object.Add(new Board { Title = "My Awesome Board", Owner = new ApplicationUser() });
-           
+
             //var data = mock_boards.Object.AsQueryable();
             mock_boards.As<IQueryable<Board>>().Setup(m => m.Provider).Returns(data.Provider);
             mock_boards.As<IQueryable<Board>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
@@ -267,6 +260,5 @@ namespace Brello.Tests.Models
             Assert.AreEqual(2, boards.Count);
             /* End Assert */
         }
-        
     }
 }

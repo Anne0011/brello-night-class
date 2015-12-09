@@ -1,7 +1,7 @@
-﻿$(document).ready(function (){
+﻿$(document).ready(function () {
     $('#list-submit').on('click', function (e) {
         e.preventDefault();
 
-        $.post("/Boards/CreateList",{})
+        $.post("/Boards/CreateList", {})
     });
 });

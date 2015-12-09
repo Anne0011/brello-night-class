@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Brello.Models
 {
@@ -10,6 +6,7 @@ namespace Brello.Models
     {
         [Key]
         public int VoteId { get; set; }
+
         public int Value { get; set; }
         public Card Card { get; set; }
         public ApplicationUser User { get; set; }

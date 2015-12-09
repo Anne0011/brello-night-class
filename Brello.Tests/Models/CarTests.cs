@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Brello.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Brello.Models;
 using Moq;
 
 namespace Brello.Tests.Models
@@ -29,6 +28,7 @@ namespace Brello.Tests.Models
             mock_car.Setup(x => x.Horn()).Returns("BEEP!");
             Assert.AreEqual("BEEP!", mock_car.Object.Horn());
         }
+
         /*
         [TestMethod]
         public void CarEnsureICanMockInterface()
@@ -43,12 +43,12 @@ namespace Brello.Tests.Models
 
         /*
         //Moq Requires methods to be called explicitly after setup.
-        
+
         [TestMethod]
         public void CarEnsureReadyEngineIsCalled()
         {
             Mock<Car> mock_car = new Mock<Car>();
-            
+
             mock_car.Setup(x => x.ReadyEngines());
             mock_car.Object.Horn();
             //mock_car.Setup(x => x.Horn()).Returns("BEEP!");
@@ -56,6 +56,5 @@ namespace Brello.Tests.Models
             mock_car.Verify(x => x.ReadyEngines(), Times.Once());
         }
         */
-        
     }
 }

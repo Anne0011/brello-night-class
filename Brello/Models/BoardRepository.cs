@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data.Entity;
+using System.Linq;
 
 namespace Brello.Models
 {
@@ -19,7 +18,8 @@ namespace Brello.Models
             context = new BoardContext();
         }
 
-        public BoardRepository(BoardContext _context) {
+        public BoardRepository(BoardContext _context)
+        {
             context = _context;
         }
 
@@ -32,6 +32,7 @@ namespace Brello.Models
             try
             {
                 found_board = query.Single<Board>();
+                _list.CreatedAt = DateTime.Now;
                 found_board.Lists.Add(_list);
                 context.SaveChanges();
             }
@@ -61,7 +62,7 @@ namespace Brello.Models
 
         public Board CreateBoard(string title, ApplicationUser owner)
         {
-            Board my_board = new Board { Title = title, Owner = owner};
+            Board my_board = new Board { Title = title, Owner = owner };
             context.Boards.Add(my_board);
             context.SaveChanges(); // This saves something to the Database
 
@@ -77,7 +78,7 @@ namespace Brello.Models
         {
             var query = from b in context.Boards select b;
             // Same As -> context.Boards.ToList().Count
-            
+
             return query.Count();
         }
 

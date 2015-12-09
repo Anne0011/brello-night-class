@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Brello.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Brello.Models;
 
 namespace Brello.Tests.Models
 {
@@ -18,7 +17,7 @@ namespace Brello.Tests.Models
         public void ColorEnsurePropertiesWork()
         {
             // Object Initializer syntax
-            Color c = new Color {Name = "Blue", Value = "#0000ff"};
+            Color c = new Color { Name = "Blue", Value = "#0000ff" };
             // Otherwise you'd have to
             /*
             Color c = new Color();

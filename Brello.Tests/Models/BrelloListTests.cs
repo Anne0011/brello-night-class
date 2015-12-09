@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Brello.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Brello.Models;
+using System;
 using System.Collections.Generic;
 
 namespace Brello.Tests.Models
@@ -21,10 +21,13 @@ namespace Brello.Tests.Models
             Card card1 = new Card { Title = "My Card" };
             List<Card> list_of_cards = new List<Card>();
             list_of_cards.Add(card1);
-            BrelloList list = new BrelloList { Title = "My List",
-                                               BrelloListId = 1,
-                                               CreatedAt = DateTime.Parse("2015-01-02"),
-                                               Cards = list_of_cards };
+            BrelloList list = new BrelloList
+            {
+                Title = "My List",
+                BrelloListId = 1,
+                CreatedAt = DateTime.Parse("2015-01-02"),
+                Cards = list_of_cards
+            };
             Assert.AreEqual("My List", list.Title);
             Assert.AreEqual(1, list.Cards.Count);
         }
